@@ -1,0 +1,19 @@
+from django.db import models
+from django.contrib.auth.models import User
+
+class Doctor(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    specialization = models.CharField(max_length=100)
+
+    def __str__(self):
+        return f"{self.user.username} - {self.specialization}"
+
+class Appointment(models.Model):
+    student = models.ForeignKey(User, on_delete=models.CASCADE, related_name="appointments")
+    doctor = models.ForeignKey(Doctor, on_delete=models.CASCADE, related_name="appointments")
+    date = models.DateField()
+    time = models.TimeField()
+    status = models.CharField(max_length=20, choices=[("Booked", "Booked"), ("Completed", "Completed")], default="Booked")
+
+    def __str__(self):
+        return f"{self.student.username} with {self.doctor.user.username} on {self.date} {self.time}"
