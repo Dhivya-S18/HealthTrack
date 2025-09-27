@@ -1,0 +1,15 @@
+<h2>My Health Records</h2>
+<ul>
+{% for r in records %}
+    <li>{{ r.date }} - {{ r.condition }}
+        <ul>
+            {% for p in r.prescriptions.all %}
+                <li>{{ p.medicine }} - {{ p.dosage }}</li>
+            {% empty %}
+                <li>No prescription</li>
+            {% endfor %}
+        </ul>
+    </li>
+{% endfor %}
+</ul>
+<a href="{% url 'add_record' %}">Add New Record</a>
