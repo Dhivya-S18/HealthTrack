@@ -15,3 +15,10 @@ urlpatterns = [
     # Dashboard: Shared or can be member-specific
     path("dashboard/", views.health_dashboard, name="dashboard"),
 ]
+from django.urls import path # type: ignore
+from . import views
+
+urlpatterns = [
+    path("appointments/", views.my_appointments, name="my_appointments"),
+    path("records/", views.my_health_records, name="my_records"),
+    ]
