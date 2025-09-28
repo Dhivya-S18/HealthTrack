@@ -4,7 +4,10 @@ ASGI config for healthtrack project.
 It exposes the ASGI callable as a module-level variable named ``application``.
 
 For more information on this file, see
+<<<<<<< HEAD
 https://docs.djangoproject.com/en/4.2/howto/deployment/asgi/
+=======
+>>>>>>> origin/member1
 https://docs.djangoproject.com/en/5.2/howto/deployment/asgi/
 """
 
